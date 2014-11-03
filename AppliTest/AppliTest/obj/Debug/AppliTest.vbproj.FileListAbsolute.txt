@@ -1,0 +1,17 @@
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\AppliTest.exe.config
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\AppliTest.exe
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\AppliTest.pdb
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\AppliTest.xml
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\obj\Debug\AppliTest.Resources.resources
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\obj\Debug\AppliTest.vbproj.GenerateResource.Cache
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\obj\Debug\AppliTest.exe
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\obj\Debug\AppliTest.xml
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\obj\Debug\AppliTest.pdb
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\obj\Debug\AppliTest.vbprojResolveAssemblyReference.cache
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\obj\Debug\AppliTest.Form1.resources
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\ToastNotify.dll
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\ToastNotify.pdb
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\MOM\Project\C#\ToastNotify\AppliTest\AppliTest\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb

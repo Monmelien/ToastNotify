@@ -1,0 +1,10 @@
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\ToastNotify.dll.config
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\ToastNotify.dll
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\ToastNotify.pdb
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\obj\Debug\ToastNotify.dll
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\obj\Debug\ToastNotify.pdb
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\obj\Debug\ToastNotify.csprojResolveAssemblyReference.cache
