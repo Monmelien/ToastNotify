@@ -209,13 +209,20 @@ namespace ToastNotify
                     switch (i)
                     {
                         case 0:
-                            text1 = text[i];
+                            if (i < value.Count )
+                                text1 = value[i];
                             break;
                         case 1:
-                            text2 = text[i];
+                            if (i < value.Count)
+                                text2 = value[i];
+                            else
+                                text2 = "";
                             break;
                         case 2:
-                            text3 = text[i];
+                            if (i < value.Count)
+                                text3 = value[i];
+                            else
+                                text3 = "";
                             break;
 
                         default:
