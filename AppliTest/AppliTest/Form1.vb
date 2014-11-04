@@ -1,6 +1,6 @@
 ﻿
 Public Class Form1
-    Public WithEvents test As New ToastNotify.Toast
+    Public WithEvents test As New ToastNotify.Toast(ToastNotify.Toast.ToastType.ImageAndText04)
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
@@ -9,38 +9,14 @@ Public Class Form1
         For Each line In TextBox1.Lines
             test2.Add(line)
         Next
-        test.text = test2
 
-        Select Case ComboBox1.SelectedIndex
-            Case 0
-                test.Type = ToastNotify.Toast.ToastType.ImageAndText01
-                test.image = TextBox2.Text
-            Case 1
-                test.Type = ToastNotify.Toast.ToastType.ImageAndText02
-                test.image = TextBox2.Text
-            Case 2
-                test.Type = ToastNotify.Toast.ToastType.ImageAndText03
-                test.image = TextBox2.Text
-            Case 3
-                test.Type = ToastNotify.Toast.ToastType.ImageAndText04
-                test.image = TextBox2.Text
-            Case 4
-                test.Type = ToastNotify.Toast.ToastType.Text01
-                test.image = ""
-            Case 5
-                test.Type = ToastNotify.Toast.ToastType.Text02
-                test.image = ""
-            Case 6
-                test.Type = ToastNotify.Toast.ToastType.Text03
-                test.image = ""
-            Case 7
-                test.Type = ToastNotify.Toast.ToastType.Text04
-                test.image = ""
-        End Select
+        test.text1 = "test"
+        test.text2 = "Test 2"
+        test.text3 = "Test 3"
 
-
-        test.Audio = ComboBox2.Text
-        test.show()
+        MessageBox.Show(test.getXml())
+        TextBox2.Text = test.text1
+        'test.show()
 
     End Sub
 
@@ -58,11 +34,6 @@ Public Class Form1
 
     Private Sub toastFailed(sender As Object, e As ToastNotify.ToastFailEventArgs) Handles test.toastFailed
         'MsgBox("Notification echoué")
-    End Sub
-
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        MsgBox(test.show2())
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
