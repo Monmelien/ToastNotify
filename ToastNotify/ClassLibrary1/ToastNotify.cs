@@ -14,10 +14,11 @@ namespace ToastNotify
 {
     public class Toast
     {
+        //shortcut ? 
         private String shortcutPath;
-
+        
+        // variable de base
         private String APP_ID = System.AppDomain.CurrentDomain.FriendlyName.Substring(0,System.AppDomain.CurrentDomain.FriendlyName.LastIndexOf("."));
-        private ToastType prType; //Type de la toast forcer a text01 par défaut
         
         //Gestion des evenements
         public delegate void toastEventHandler(object sender, ToastEventArgs e);
@@ -90,7 +91,7 @@ namespace ToastNotify
             }
         }
 
-        //test By object
+        //Variable Text du ToastXml
         private XmlDocument toastXml;
         public String text1
         {
@@ -121,8 +122,7 @@ namespace ToastNotify
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("1"))
                     {
-                        NodeValue = stringElements[i].FirstChild.GetXml() ;
-                        return NodeValue;
+                        return stringElements[i].FirstChild.GetXml() ;
                     }
                 }
                 return "";
@@ -157,8 +157,8 @@ namespace ToastNotify
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("2"))
                     {
-                        NodeValue = stringElements[i].FirstChild.GetXml();
-                        return NodeValue;
+                        return stringElements[i].FirstChild.GetXml();
+
                     }
                 }
                 return "";
@@ -176,9 +176,9 @@ namespace ToastNotify
 
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("3"))
-                    {
                         stringElements[i].AppendChild(toastXml.CreateTextNode(value));
-                    }
+                    else
+                        stringElements[i].AppendChild(toastXml.CreateTextNode(""));
                 }
             }
             get
@@ -190,21 +190,21 @@ namespace ToastNotify
                 for (int i = 0; i < stringElements.Length; i++)
                 {
 
+                    MessageBox.Show(toastXml.GetXml());
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("3"))
                     {
-                        NodeValue = stringElements[i].FirstChild.GetXml();
-                        return NodeValue;
+                        return stringElements[i].FirstChild.GetXml();
                     }
                 }
                 return "";
             }
         }
-        public System.Collections.Generic.List<string> text  //Collection de string pour les 3 lignes
+        public System.Collections.Generic.List<String> text  //Collection de string pour les 3 lignes
         {
             set
             {
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i <= 2; i++)
                 {
                     switch (i)
                     {
@@ -236,7 +236,8 @@ namespace ToastNotify
                 return new System.Collections.Generic.List<string>() { text1, text2, text3 };
             }
         }
-        
+
+        private ToastType prType; 
         public ToastType type
         {
             set
