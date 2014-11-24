@@ -91,6 +91,11 @@ namespace ToastNotify
             }
         }
 
+        //Sauvegarde de l'object
+        public System.Collections.Generic.List<String> SaveText = new System.Collections.Generic.List<String>();  //Collection de string pour les 3 lignes
+        private String SaveImage; //Image de gauche sur la notification
+        private String SaveAudio = ""; //Définition du son
+
         //Variable Text du ToastXml
         private XmlDocument toastXml;
         public String text1
@@ -99,10 +104,10 @@ namespace ToastNotify
             {
                 XmlNodeList stringElements;
                 stringElements = toastXml.GetElementsByTagName("text");
-                
+
+                SaveText.Insert(0, value);
                 for (int i = 0; i < stringElements.Length; i++)
                 {
-                    
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("1"))
                     {
@@ -135,9 +140,10 @@ namespace ToastNotify
                 XmlNodeList stringElements;
                 stringElements = toastXml.GetElementsByTagName("text");
 
+                SaveText.Insert(1, value);
                 for (int i = 0; i < stringElements.Length; i++)
                 {
-
+                    
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("2"))
                     {
@@ -171,14 +177,15 @@ namespace ToastNotify
                 XmlNodeList stringElements;
                 stringElements = toastXml.GetElementsByTagName("text");
 
+                SaveText.Insert(2, value);
                 for (int i = 0; i < stringElements.Length; i++)
                 {
 
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("3"))
+                    {
                         stringElements[i].AppendChild(toastXml.CreateTextNode(value));
-                    else
-                        stringElements[i].AppendChild(toastXml.CreateTextNode(""));
+                    }
                 }
             }
             get
@@ -209,8 +216,10 @@ namespace ToastNotify
                     switch (i)
                     {
                         case 0:
-                            if (i < value.Count )
+                            if (i < value.Count)
                                 text1 = value[i];
+                            else
+                                text1 = "";
                             break;
                         case 1:
                             if (i < value.Count)
@@ -237,6 +246,35 @@ namespace ToastNotify
             }
         }
 
+        //Variable Image
+        public String Image
+        {
+            set
+            {
+                if (value != "" && HaveImage())
+                {
+                    SaveImage = value;
+                    //String imagePath = "file:///" + value;
+                    String imagePath = "ms-appx:///" + value;
+                    //String imagePath = "ms-appdata:///local/" + value; 
+                    XmlNodeList imageElements = toastXml.GetElementsByTagName("image");
+                    imageElements[0].Attributes.GetNamedItem("src").NodeValue = imagePath;
+                }
+            }
+            get
+            {
+                return "Youpi Ho!!!!";
+            }
+        }
+        
+        public bool HaveImage()
+        {
+            if (type == ToastType.ImageAndText01 || type == ToastType.ImageAndText02 || type == ToastType.ImageAndText03 || type == ToastType.ImageAndText04)
+            return true;
+            else
+            return false;
+        }
+        
         private ToastType prType; 
         public ToastType type
         {
@@ -249,20 +287,16 @@ namespace ToastNotify
             {
                 return prType;
             }
-        } //Type de toast
+        } //Type de toasts
 
         public String GetXml()
         {
             return toastXml.GetXml();
         }
 
-        private String toastImage = ""; //Image de gauche sur la notification
-        private String toastAudio = ""; //Définition du son
-
-
-
         public Toast(ToastType TypeToast)
         {
+            // Création du raccourcis pour l'utilisation des toast
             TryCreateShortcut();
 
             // Création de la toast via le Type
@@ -277,7 +311,7 @@ namespace ToastNotify
         private void ToastActivated(ToastNotification sender, object e)
         {
             if (toastActivated != null)
-                toastActivated(this, new ToastEventArgs("Hello"));
+                toastActivated(this, new ToastEventArgs(""));
         }
         private void ToastDismissed(ToastNotification sender, ToastDismissedEventArgs e)
         {
@@ -341,16 +375,9 @@ namespace ToastNotify
                 System.IO.File.Delete(shortcutPath);
             }
         }
-        // Create and show the toast.
-        // See the "Toasts" sample for more detail on what can be done with toasts
+
         public void show()
         {
-            // Get a toast XML template
-            ;
-
-            // Texte
-            
-
             // Image
             //if (image != "" && TypeConvert(type) != ToastTemplateType.ToastText01 && TypeConvert(type) != ToastTemplateType.ToastText02 && TypeConvert(type) != ToastTemplateType.ToastText03 && TypeConvert(type) != ToastTemplateType.ToastText04)
             //{
@@ -376,9 +403,9 @@ namespace ToastNotify
             toast.Activated += ToastActivated;
             toast.Dismissed += ToastDismissed;
             toast.Failed += ToastFailed;
+           
 
             // Affichage de la toast
-            MessageBox.Show(toastXml.GetXml());
             ToastNotificationManager.CreateToastNotifier(APP_ID).Show(toast);
         }
     }

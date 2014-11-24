@@ -31,20 +31,12 @@ Public Class Form1
             test2.Add(line)
         Next
 
-
+        test.image = TextBox2.Text
 
         test.text = test2
 
-        Dim test3 As List(Of String)
-        test3 = test.text
-        For Each line In test3
-            MsgBox(line)
-        Next
-
-
-        MessageBox.Show("|" & test3.Count & "|" & vbNewLine & test.GetXml())
-        'TextBox2.Text = test.text1
-        'test.show()
+        MessageBox.Show(test.GetXml())
+        test.show()
 
     End Sub
 
