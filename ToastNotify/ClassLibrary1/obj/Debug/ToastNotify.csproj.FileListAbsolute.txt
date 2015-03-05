@@ -7,4 +7,5 @@ D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\Microsoft.Wind
 D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
 D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\obj\Debug\ToastNotify.dll
 D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\obj\Debug\ToastNotify.pdb
+D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\bin\Debug\ToastNotify.tlb
 D:\MOM\Project\C#\ToastNotify\ToastNotify\ClassLibrary1\obj\Debug\ToastNotify.csprojResolveAssemblyReference.cache

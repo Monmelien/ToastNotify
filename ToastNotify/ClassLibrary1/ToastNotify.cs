@@ -104,14 +104,20 @@ namespace ToastNotify
             {
                 XmlNodeList stringElements;
                 stringElements = toastXml.GetElementsByTagName("text");
-
                 SaveText.Insert(0, value);
                 for (int i = 0; i < stringElements.Length; i++)
                 {
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("1"))
                     {
-                        stringElements[i].AppendChild(toastXml.CreateTextNode(value));
+                        if (stringElements[i].InnerText != "")
+                        {
+                            stringElements[i].InnerText = value;
+                        }
+                        else
+                        {
+                            stringElements[i].AppendChild(toastXml.CreateTextNode(value));
+                        }
                     }
                 }
             }
@@ -127,6 +133,7 @@ namespace ToastNotify
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("1"))
                     {
+                        
                         return stringElements[i].FirstChild.GetXml() ;
                     }
                 }
@@ -147,7 +154,14 @@ namespace ToastNotify
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("2"))
                     {
-                        stringElements[i].AppendChild(toastXml.CreateTextNode(value));
+                        if (stringElements[i].InnerText != "")
+                        {
+                            stringElements[i].InnerText = value;
+                        }
+                        else
+                        {
+                            stringElements[i].AppendChild(toastXml.CreateTextNode(value));
+                        }
                     }
                 }
             }
@@ -184,7 +198,14 @@ namespace ToastNotify
                     string NodeValue = stringElements[i].Attributes.Item(0).NodeValue.ToString();
                     if (NodeValue.Equals("3"))
                     {
-                        stringElements[i].AppendChild(toastXml.CreateTextNode(value));
+                        if (stringElements[i].InnerText != "")
+                        {
+                            stringElements[i].InnerText = value;
+                        }
+                        else
+                        {
+                            stringElements[i].AppendChild(toastXml.CreateTextNode(value));
+                        }
                     }
                 }
             }
