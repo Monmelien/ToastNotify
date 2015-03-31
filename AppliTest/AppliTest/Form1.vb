@@ -45,15 +45,15 @@ Public Class Form1
     End Sub
 
     Private Sub toastActivated(sender As Object, e As ToastNotify.ToastEventArgs) Handles test.toastActivated
-        'MsgBox("Notification activé")
+        MsgBox("Notification activé")
     End Sub
 
     Private Sub toastDismissed(sender As Object, e As ToastNotify.ToastDismissEventArgs) Handles test.toastDismissed
-        'MsgBox("Notification annulé")
+        MsgBox("Notification annulé")
     End Sub
 
     Private Sub toastFailed(sender As Object, e As ToastNotify.ToastFailEventArgs) Handles test.toastFailed
-        'MsgBox("Notification echoué")
+        MsgBox("Notification echoué")
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged

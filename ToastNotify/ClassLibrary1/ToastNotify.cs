@@ -275,8 +275,8 @@ namespace ToastNotify
                 if (value != "" && HaveImage())
                 {
                     SaveImage = value;
-                    //String imagePath = "file:///" + value;
-                    String imagePath = "ms-appx:///" + value;
+                    String imagePath = "file:///" + value;
+                    //String imagePath = "ms-appx:///" + value;
                     //String imagePath = "ms-appdata:///local/" + value; 
                     XmlNodeList imageElements = toastXml.GetElementsByTagName("image");
                     imageElements[0].Attributes.GetNamedItem("src").NodeValue = imagePath;
@@ -322,6 +322,9 @@ namespace ToastNotify
 
             // Création de la toast via le Type
             type = TypeToast;
+            text1 = "";
+            text2 = "";
+            text3 = "";
         } //Constructeur
         ~Toast()
         {
@@ -329,8 +332,9 @@ namespace ToastNotify
         } //Destructeur
 
         //Procédure local
-        private void ToastActivated(ToastNotification sender, object e)
+        private void ToastActivated(ToastNotification sender, object  e)
         {
+            //Ne pas saisir de messagebox car celle-ci n'a pas le focus a la reprise.
             if (toastActivated != null)
                 toastActivated(this, new ToastEventArgs(""));
         }
@@ -399,15 +403,6 @@ namespace ToastNotify
 
         public void show()
         {
-            // Image
-            //if (image != "" && TypeConvert(type) != ToastTemplateType.ToastText01 && TypeConvert(type) != ToastTemplateType.ToastText02 && TypeConvert(type) != ToastTemplateType.ToastText03 && TypeConvert(type) != ToastTemplateType.ToastText04)
-            //{
-            //    //String imagePath = "file:///" + image;
-            //    String imagePath = "ms-appx:///" + image;
-            //    XmlNodeList imageElements = toastXml.GetElementsByTagName("image");
-            //    imageElements[0].Attributes.GetNamedItem("src").NodeValue = imagePath;
-            //}
-           
             //// Audio
             //if (audio != "")
             //{
@@ -421,6 +416,7 @@ namespace ToastNotify
 
             // Toast & evenement
             ToastNotification toast = new ToastNotification(toastXml);
+            
             toast.Activated += ToastActivated;
             toast.Dismissed += ToastDismissed;
             toast.Failed += ToastFailed;
@@ -428,6 +424,11 @@ namespace ToastNotify
 
             // Affichage de la toast
             ToastNotificationManager.CreateToastNotifier(APP_ID).Show(toast);
+            
+            // réinitialisation des champs texte a blanc
+            text1 = "";
+            text2 = "";
+            text3 = "";
         }
     }
 
